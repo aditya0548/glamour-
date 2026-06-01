@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Makeover | Rupali Zine</title>
+
+    <!-- Google Fonts: Playfair Display (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-primary': 'var(--bg-primary)',
+              'bg-secondary': 'var(--bg-secondary)',
+              'accent-gold': 'var(--accent-gold)',
+              'text-primary': 'var(--text-primary)',
+              'text-secondary': 'var(--text-secondary)',
+              'border': 'var(--border)',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Spline Viewer (3D) -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="bg-bg-primary text-text-primary antialiased selection:bg-accent-gold selection:text-black">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 px-6 py-4 flex justify-between items-center backdrop-blur-md bg-black/50 border-b border-white/5">
+        <a href="#" class="font-bold text-xl tracking-widest text-accent-gold" style="font-family: 'Playfair Display', serif;">GLAMOUR</a>
+
+        <div class="hidden md:flex space-x-8 items-center text-sm uppercase tracking-wider text-text-secondary">
+            <a href="#about" class="hover:text-accent-gold transition-colors">About</a>
+            <a href="#gallery" class="hover:text-accent-gold transition-colors">Gallery</a>
+            <a href="#credibility" class="hover:text-accent-gold transition-colors">Experience</a>
+            <a href="#contact" class="hover:text-accent-gold transition-colors">Contact</a>
+            <button id="audio-toggle" class="hover:text-accent-gold transition-colors border border-border px-3 py-1 rounded-full">Audio: Off</button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-accent-gold focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-bg-primary z-40 hidden flex-col justify-center items-center space-y-8 text-xl uppercase tracking-widest">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-text-secondary hover:text-accent-gold">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#about" class="mobile-link hover:text-accent-gold transition-colors">About</a>
+        <a href="#gallery" class="mobile-link hover:text-accent-gold transition-colors">Gallery</a>
+        <a href="#credibility" class="mobile-link hover:text-accent-gold transition-colors">Experience</a>
+        <a href="#contact" class="mobile-link hover:text-accent-gold transition-colors">Contact</a>
+        <button id="mobile-audio-toggle" class="hover:text-accent-gold transition-colors border border-border px-4 py-2 rounded-full mt-4">Audio: Off</button>
+    </div>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        <!-- Optional Background Image Placeholder -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-bg-primary z-0"></div>
+        <div class="z-10 fade-in">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl mb-4 text-accent-gold uppercase">Glamour Makeover</h1>
+            <p class="text-lg md:text-xl text-text-secondary tracking-widest font-light uppercase">Airbrush Makeup Artist & Hairstylist</p>
+        </div>
+        <a href="#about" class="absolute bottom-10 z-10 animate-bounce text-text-secondary hover:text-accent-gold transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-padding px-6 max-w-4xl mx-auto text-center fade-in">
+        <h2 class="text-3xl md:text-5xl mb-8 text-accent-gold">The Artist</h2>
+        <p class="text-lg md:text-2xl text-text-secondary leading-relaxed font-light mb-8">
+            "A certified airbrush makeup artist and hairstylist with 4 years of experience creating unforgettable transformations."
+        </p>
+        <p class="text-base md:text-lg text-text-secondary leading-relaxed font-light">
+            "Trained under the renowned Rohini Kakde, Rupali brings technical precision and artistic vision to every face she touches."
+        </p>
+    </section>
+
+    <!-- 3D Cinematic Section -->
+    <section id="3d-section" class="w-full h-screen relative bg-bg-secondary fade-in">
+        <!-- Using a placeholder cosmetic spline scene from community -->
+        <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"></spline-viewer>
+        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-bg-primary to-transparent"></div>
+    </section>
+
+    <!-- Signature Work Gallery -->
+    <section id="gallery" class="section-padding px-6 max-w-7xl mx-auto fade-in">
+        <h2 class="text-3xl md:text-5xl mb-12 text-center text-accent-gold">Signature Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Placeholder Images -->
+            <div class="aspect-[4/5] bg-bg-secondary rounded-lg overflow-hidden hover-scale group relative">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span class="text-accent-gold tracking-widest uppercase text-sm">View</span>
+                </div>
+                <!-- Inline SVG Placeholder -->
+                <svg class="w-full h-full text-border bg-bg-secondary" fill="currentColor" viewBox="0 0 24 24"><rect width="24" height="24" fill="var(--bg-secondary)"/><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2z" fill="#2A2A2A"/></svg>
+            </div>
+            <div class="aspect-[4/5] bg-bg-secondary rounded-lg overflow-hidden hover-scale group relative">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span class="text-accent-gold tracking-widest uppercase text-sm">View</span>
+                </div>
+                <svg class="w-full h-full text-border bg-bg-secondary" fill="currentColor" viewBox="0 0 24 24"><rect width="24" height="24" fill="var(--bg-secondary)"/><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2z" fill="#2A2A2A"/></svg>
+            </div>
+            <div class="aspect-[4/5] bg-bg-secondary rounded-lg overflow-hidden hover-scale group relative">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span class="text-accent-gold tracking-widest uppercase text-sm">View</span>
+                </div>
+                <svg class="w-full h-full text-border bg-bg-secondary" fill="currentColor" viewBox="0 0 24 24"><rect width="24" height="24" fill="var(--bg-secondary)"/><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2z" fill="#2A2A2A"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Stats -->
+    <section id="credibility" class="py-20 bg-bg-secondary border-y border-border fade-in">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div class="p-[36px] bg-bg-primary rounded-lg border border-border hover-scale">
+                <h3 class="text-5xl text-accent-gold mb-4">04</h3>
+                <p class="text-text-secondary uppercase tracking-widest text-sm">Years of Mastery</p>
+            </div>
+            <div class="p-[36px] bg-bg-primary rounded-lg border border-border hover-scale">
+                <h3 class="text-5xl text-accent-gold mb-4">01</h3>
+                <p class="text-text-secondary uppercase tracking-widest text-sm">Certification (Rohini Kakde)</p>
+            </div>
+            <div class="p-[36px] bg-bg-primary rounded-lg border border-border hover-scale">
+                <h3 class="text-5xl text-accent-gold mb-4">∞</h3>
+                <p class="text-text-secondary uppercase tracking-widest text-sm">Personalized Approach</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact" class="section-padding px-6 max-w-7xl mx-auto fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl mb-8 text-accent-gold">Book Your Look</h2>
+                <div class="space-y-6 text-lg text-text-secondary font-light">
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        +91 92841 97003
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Rasne Nagar, Behind Daule Hospital, Ahillyanagar
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        <a href="https://instagram.com/rupali_zine_makeup_artist" target="_blank" class="hover:text-accent-gold transition-colors">@rupali_zine_makeup_artist</a>
+                    </p>
+                </div>
+                <div class="mt-10">
+                    <a href="https://wa.me/919284197003" target="_blank" class="inline-block bg-accent-gold text-black font-semibold px-8 py-4 rounded hover:bg-white transition-colors uppercase tracking-widest text-sm">
+                        Book via WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="h-[400px] w-full bg-bg-secondary rounded-lg overflow-hidden border border-border">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1136.21689725965!2d74.7431!3d19.0945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcb05555555555%3A0x1111111111111111!2sAhillyanagar!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="py-8 bg-bg-secondary border-t border-border text-center text-text-secondary text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2024 Glamour Makeover. All rights reserved.</p>
+            <div class="mt-4 md:mt-0 space-x-6">
+                <a href="https://instagram.com/rupali_zine_makeup_artist" target="_blank" class="hover:text-accent-gold transition-colors">Instagram</a>
+                <a href="https://wa.me/919284197003" target="_blank" class="hover:text-accent-gold transition-colors">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Howler.js for Audio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/audio.js"></script>
+</body>
+</html>
